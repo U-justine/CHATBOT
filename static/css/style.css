@@ -1,0 +1,318 @@
+:root {
+    --primary-color: #4F46E5;    /* Main theme color - Indigo */
+    --secondary-color: #818CF8;   /* Lighter shade for hover effects */
+    --background-color: #F3F4F6;  /* Light gray background */
+    --chat-bg: #FFFFFF;          /* White chat background */
+    --text-color: #1F2937;       /* Dark gray text */
+    --accent-color: #C7D2FE;     /* Very light indigo for highlights */
+    --error-color: #EF4444;      /* Red for errors */
+    --success-color: #10B981;    /* Green for success messages */
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+header p {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+/* Authentication Styles */
+.auth-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-box {
+    background-color: var(--chat-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.auth-box button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Chat Container Styles */
+.chat-container {
+    background-color: var(--chat-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.chat-box {
+    height: 500px;
+    padding: 1.5rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Message Styles */
+.message {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 80%;
+    position: relative;
+}
+
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    margin-right: auto;
+}
+
+/* Timestamp Styles */
+.timestamp {
+    position: absolute;
+    bottom: -1.2rem;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.user-message .timestamp {
+    right: 0;
+}
+
+.bot-message .timestamp {
+    left: 0;
+}
+
+/* Input Area Styles */
+.input-area {
+    display: flex;
+    padding: 1rem;
+    background-color: var(--chat-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    gap: 0.5rem;
+}
+
+#userInput {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#userInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+#sendBtn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#sendBtn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* File Attachment Styles */
+.file-label {
+    cursor: pointer;
+    padding: 0.75rem;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.file-label:hover {
+    color: var(--secondary-color);
+}
+
+.file-attachment {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--accent-color);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: none;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+}
+
+/* User Info Styles */
+.user-info {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#userEmail {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+#logoutBtn {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#logoutBtn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .auth-box {
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    #sendBtn {
+        width: 100%;
+    }
+}
