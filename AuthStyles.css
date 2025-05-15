@@ -1,0 +1,136 @@
+/* static/css/style.css */
+/* Previous CSS rules remain the same, adding new ones below */
+
+
+:root {
+    --background-color: rgba(0, 0, 0, 0.5);
+    --chat-bg: #ffffff;
+    --accent-color: #6c757d;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --text-color: #212529;
+}
+
+.auth-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-box {
+    background-color: var(--chat-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 0.5rem;
+}
+
+.user-info {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#logoutBtn {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.typing-indicator {
+    display: none;
+    padding: 1rem;
+    background-color: var(--accent-color);
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+}
+
+.message {
+    position: relative;
+}
+
+.timestamp {
+    position: absolute;
+    bottom: -1.2rem;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.user-message .timestamp {
+    right: 0;
+}
+
+.bot-message .timestamp {
+    left: 0;
+}
+
+.file-attachment {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--accent-color);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-label {
+    cursor: pointer;
+    padding: 0.75rem;
+    color: var(--primary-color);
+}
+
+.file-label:hover {
+    color: var(--secondary-color);
+}
